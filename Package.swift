@@ -14,9 +14,18 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "swiftGLFWDemo",
-            dependencies: []),
+            dependencies: ["CGLFW"]
+        ),
+        
+        .systemLibrary(
+            name: "CGLFW",
+            path: "Sources/CGLFW",
+            pkgConfig: "glfw3"
+        ),
+        
         .testTarget(
             name: "swiftGLFWDemoTests",
-            dependencies: ["swiftGLFWDemo"]),
+            dependencies: ["swiftGLFWDemo"]
+        ),
     ]
 )
